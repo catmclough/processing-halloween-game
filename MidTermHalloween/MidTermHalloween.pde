@@ -5,20 +5,6 @@
 /* @pjs preload= "data/halloween_background.png", "data/pumpkin_normal.png",
 "data/pumpkin_shocked.png", "data/candy_corn.png", "data/ghostright.png";*/
 
-// import minim library
-import ddf.minim.spi.*;
-import ddf.minim.signals.*;
-import ddf.minim.*;
-import ddf.minim.analysis.*;
-import ddf.minim.ugens.*;
-import ddf.minim.effects.*;
-
-//initialize audio variable
-Minim minim;
-
-//initialize audio file
-AudioPlayer song3;
-
 Witch bertha;
 Ghost casper;
 
@@ -35,19 +21,11 @@ int witchGrabs = 0;
 
 int numFrames = 27;
 int currentFrame = 0;
-PImage[] images = new PImage[numFrames];
+//PImage[] images = new PImage[numFrames];
 
 
 void setup() {
   size(800, 600);  
-  
-  // set up Minim  
-  minim = new Minim(this);
-
-  //load audio file
-  song3 = minim.loadFile("data/monster_mash.mp3");;
-
-  song3.play();
   
   backgroundImage = loadImage("data/halloween_background.png");
   pumpkinNormal = loadImage("data/pumpkin_normal.png");
@@ -67,10 +45,10 @@ void setup() {
   // increase the detail on our Perlin Noise landscape
   noiseDetail(24);   
   
-  //load skeleton gif
-  for (int i=0; i<numFrames; i++) {
-    images[i] = loadImage("data/giphy-" +(i+1)+ " (dragged).jpeg");
-  }
+  ////load skeleton gif
+  //for (int i=0; i<numFrames; i++) {
+  //  images[i] = loadImage("data/giphy-" +(i+1)+ " (dragged).jpeg");
+  //}
 }
 
 void draw() {
@@ -83,12 +61,12 @@ void draw() {
     fill(255, 140, 0);
 
     frameRate(18);
-    currentFrame = (currentFrame+1) % numFrames;
-    for (int i = 1; i < 800; i+=180) {
-      for (int j = 1; j < 550; j+=400) {
-        image(images[(currentFrame) % numFrames], i+50, j+100, 240, 180);
-      }
-    }
+    //currentFrame = (currentFrame+1) % numFrames;
+    //for (int i = 1; i < 800; i+=180) {
+    //  for (int j = 1; j < 550; j+=400) {
+    //    image(images[(currentFrame) % numFrames], i+50, j+100, 240, 180);
+    //  }
+    //}
     
     //show scared pumpkin at cursor
     image(scaredPumpkin, mouseX, mouseY, 150, 150);
